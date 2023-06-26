@@ -40,7 +40,7 @@ function print_error () {
 }
 
 function get_value_from_ini () {
-	value=$(grep -m 1 $1 ../config.ini | tr -d ' ' | cut -d '=' -f2)
+	value=$(grep -m 1 $1 ./config.ini | tr -d ' ' | cut -d '=' -f2)
 
 	if [[ -z "${value}" ]]; then
 		print_error 'В ini файле не задан $1'
@@ -53,7 +53,7 @@ exec 2>/dev/null
 
 #****************************************************** Проверка служебных файлов
 
-if [[ ! -e ../config.ini ]]; then
+if [[ ! -e ./config.ini ]]; then
         print_error 'Отсутствует конфигурационной файл'
 fi
 
